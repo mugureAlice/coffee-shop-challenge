@@ -23,4 +23,11 @@ class Customer:
         
     def create_order(self, coffee, price):
     return Order(self, coffee, price)
+
+     @classmethod
+    def most_aficionado(cls, coffee):
+        if not isinstance(coffee, Coffee):
+            raise TypeError("Argument must be a Coffee instance.")
+
+        spend_by_customer = {}    
     
