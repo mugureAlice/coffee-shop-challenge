@@ -21,3 +21,6 @@ class Customer:
             unique_coffees.add(order.get_coffee())
         return list(unique_coffees)    
         
+    def create_order(self, coffee, price):
+    return Order(self, coffee, price)
+    
