@@ -6,7 +6,6 @@ class Customer:
         return self._name  
 
     def set_name(self, value):
-        
         if isinstance(value, str) and 1 <= len(value) <= 15:
             self._name = value
         else:
@@ -15,19 +14,19 @@ class Customer:
     def orders(self):
         return [order for order in Order.all_orders if order.get_customer() == self]
 
-     def coffees(self):
+    def coffees(self):
         unique_coffees = set()
         for order in self.orders():
             unique_coffees.add(order.get_coffee())
         return list(unique_coffees)    
-        
+    
     def create_order(self, coffee, price):
-    return Order(self, coffee, price)
+        return Order(self, coffee, price)
 
-     @classmethod
+    @classmethod
     def most_aficionado(cls, coffee):
         if not isinstance(coffee, Coffee):
             raise TypeError("Argument must be a Coffee instance.")
 
         spend_by_customer = {}    
-    
+        # Remaining implementation would go here

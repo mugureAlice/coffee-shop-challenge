@@ -1,14 +1,17 @@
 import sys
 import os
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(file), '..')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import pytest
 from customer import Customer
 from coffee import Coffee
 
 def test_customer_name():
-    Joe = Customer("Joe")
-    assert james.name == "Joe"
+    # Fixed variable name mismatch (Joe vs james)
+    joe = Customer("Joe")
+    assert joe.name == "Joe"
 
-with pytest.raises(ValueError):
-    Customer("")  
+def test_customer_validation():
+    # Moved the ValueError test into a proper test function
+    with pytest.raises(ValueError):
+        Customer("")
