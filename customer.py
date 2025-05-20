@@ -1,11 +1,23 @@
 class Customer:
-    def _init_(self, name):
-        if isinstance(name, str) and 1 <= len(name) <= 15:
-            self.name = name
-            else:
-                return("Must be a str with 1 to 15 characters")    
+    def __init__(self, name):
+        self.set_name(name) 
 
-     def get_name(self):
-        self.name
+    def get_name(self):
+        return self._name  
 
-  
+    def set_name(self, value):
+        
+        if isinstance(value, str) and 1 <= len(value) <= 15:
+            self._name = value
+        else:
+            raise ValueError("Name must be a string between 1 and 15 characters.")
+
+    def orders(self):
+        return [order for order in Order.all_orders if order.get_customer() == self]
+
+     def coffees(self):
+        unique_coffees = set()
+        for order in self.orders():
+            unique_coffees.add(order.get_coffee())
+        return list(unique_coffees)    
+        
