@@ -8,13 +8,13 @@ from customer import Customer
 from coffee import Coffee
 
 def test_order():
-    Joe = Customer("Joe")
-    Makiatto  = Coffee(" Makiatto ")
-    order = Order(Joe,  Makiatto , 5.0)
+    james = Customer("James")
+    latte = Coffee("Latte")
+    order = Order(james, latte, 5.0)
 
-assert order.customer == Joe
-assert order.coffee ==  Makiatto 
-assert order.price == 5.0
+    assert order._customer == james
+    assert order._coffee == latte
+    assert order._price == 5.0
 
-with pytest.raises(ValueError):
-    Order(Joe, latte, 0)
+    with pytest.raises(ValueError):
+        Order(james, latte, 0)

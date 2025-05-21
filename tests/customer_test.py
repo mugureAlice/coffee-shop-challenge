@@ -7,12 +7,8 @@ from customer import Customer
 from coffee import Coffee
 
 def test_customer_name():
-    
-    
-    joe = Customer("Joe")
-    assert joe.name == "Joe"
+    james = Customer("James")
+    assert james._name == "James"
 
-def test_customer_validation():
-   
-    with pytest.raises(ValueError):
-        Customer("")
+with pytest.raises(ValueError):
+    Customer("") 
